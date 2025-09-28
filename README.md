@@ -89,3 +89,11 @@ This repository documents the setup of **Task 1 (Static Website Hosting Using S3
 }
   ]
 }
+
+
+## AWS IAM Console Access (for Instructor)
+
+- **Console URL:** (https://esteri.signin.aws.amazon.com/console)
+- **IAM User:** esthers-cloudlaunch-user
+- **Temporary Password:** will be provided to instructor privately
+- **Note:** User is forced to reset password at first login.
