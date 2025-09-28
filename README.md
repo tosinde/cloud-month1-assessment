@@ -132,5 +132,3 @@ e. Internet Gateways
     ]
 }
 
-
-##Task 2
