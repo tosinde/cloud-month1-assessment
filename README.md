@@ -27,8 +27,8 @@ This repository documents the setup of **Task 1 (Static Website Hosting Using S3
 
 ### IAM User: `esthers-cloudlaunch-user`
 - Permissions restricted to only the 3 buckets above.  
-- No delete permissions.  https://esteri.signin.aws.amazon.com/console
-- Enforced password reset on first login. r)m9E17) 
+- No delete permissions. 
+- Enforced password reset on first login. 
 
 #### IAM Policy JSON
 ```json
