@@ -28,7 +28,51 @@ This repository documents the setup of **Task 1 (Static Website Hosting Using S3
 ### IAM User: `esthers-cloudlaunch-user`
 - Permissions restricted to only the 3 buckets above.  
 - No delete permissions. 
-- Enforced password reset on first login. 
+- Enforced password reset on first login.
+
+## Task 2: VPC Design
+
+### VPC created: 
+- cloudlaunch-vpc
+- CIDR: 10.0.0.0/16
+
+### Subnets
+
+- Public Subnet: 10.0.1.0/24
+- Application Subnet: 10.0.2.0/24
+- Database Subnet: 10.0.3.0/28
+
+### Internet Gateway
+
+- cloudlaunch-igw attached to cloudlaunch-vpc.
+
+### Route Tables
+
+- cloudlaunch-public-rt → public subnet + IGW route (0.0.0.0/0).
+- cloudlaunch-app-rt → private (no internet).
+- cloudlaunch-db-rt → private (no internet).
+
+### Security Groups
+
+- cloudlaunch-app-sg allows HTTP (80) within VPC only.
+- cloudlaunch-db-sg allows MySQL (3306) from App subnet only.
+
+### IAM Access
+
+- cloudlaunch-user has read-only rights to view:
+
+a. VPC
+b. Subnets
+c. Route tables
+d. Security groups
+e. Internet Gateways
+
+## AWS IAM Console Access (for the Instructor)
+
+- **Console URL:** (https://esteri.signin.aws.amazon.com/console)
+- **IAM User:** esthers-cloudlaunch-user
+- **Temporary Password:** will be provided to instructor privately
+- **Note:** User is forced to reset password at first login.
 
 #### IAM Policy JSON
 ```json
@@ -87,13 +131,6 @@ This repository documents the setup of **Task 1 (Static Website Hosting Using S3
         }
     ]
 }
-  ]
-}
 
 
-## AWS IAM Console Access (for Instructor)
-
-- **Console URL:** (https://esteri.signin.aws.amazon.com/console)
-- **IAM User:** esthers-cloudlaunch-user
-- **Temporary Password:** will be provided to instructor privately
-- **Note:** User is forced to reset password at first login.
+##Task 2
